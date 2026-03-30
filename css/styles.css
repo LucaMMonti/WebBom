@@ -556,39 +556,96 @@ a:hover {
   font-weight: 600;
 }
 
-.coverage-figure {
-  margin: 2.25rem 0 0;
-  padding: 0;
+.coverage-config-note {
+  margin: 0.85rem auto 0;
+  max-width: 36rem;
+  font-size: 0.875rem;
+  line-height: 1.55;
+  color: var(--text-muted);
+  text-align: center;
 }
 
-.coverage-map-frame {
+.coverage-config-note code {
+  font-size: 0.88em;
+  padding: 0.12rem 0.35rem;
+  border-radius: 6px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  color: var(--accent);
+}
+
+.coverage-map-legend {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-top: 1.25rem;
+  font-size: 0.9rem;
+  color: var(--text-muted);
+}
+
+.coverage-legend-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+}
+
+.coverage-swatch {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  border-radius: 4px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.coverage-swatch--ok {
+  background: #22c55e;
+}
+
+.coverage-swatch--no {
+  background: #ef4444;
+}
+
+.coverage-leaflet-map {
+  height: min(520px, 62vh);
+  min-height: 360px;
+  margin-top: 1.25rem;
   border-radius: var(--radius);
   overflow: hidden;
   border: 1px solid var(--border);
   box-shadow: var(--shadow);
-  background: #e8eef5;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 1.25rem 1rem;
+  z-index: 0;
+  background: var(--bg-card);
 }
 
-.coverage-province-img {
-  width: 100%;
-  max-width: min(720px, 100%);
-  height: auto;
-  max-height: min(560px, 70vh);
-  object-fit: contain;
-  display: block;
-  margin-inline: auto;
+.coverage-leaflet-map .leaflet-container {
+  font-family: var(--font-sans);
+  background: var(--bg-card);
 }
 
-.coverage-attrib {
-  margin: 0.85rem 0 0;
+.coverage-map-hint {
+  margin: 0.65rem 0 0;
   text-align: center;
   font-size: 0.8rem;
   color: var(--text-muted);
-  line-height: 1.5;
+  line-height: 1.45;
+}
+
+.coverage-attrib {
+  margin: 1rem 0 0;
+  text-align: center;
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  line-height: 1.55;
+}
+
+.map-error {
+  margin: 0;
+  padding: 2.5rem 1rem;
+  text-align: center;
+  color: var(--text-muted);
+  font-size: 0.95rem;
 }
 
 .cta-band {

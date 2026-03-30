@@ -9,6 +9,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Outfit:wght@500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="css/styles.css" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
 </head>
 <body>
   <header class="site-header">
@@ -145,28 +146,31 @@
         <header class="section-head">
           <h2>Zona de cobertura</h2>
           <p class="coverage-lead">
-            Trabajamos en <strong>CABA</strong> y <strong>zona metropolitana</strong>, y damos servicio en distintos puntos de la
-            <strong>provincia de Buenos Aires</strong>. Consultanos por tu localidad.
+            Mapa de <strong>CABA</strong> (barrios) y del <strong>conurbano</strong> (partidos del Gran Buenos Aires incluidos en el mapa).
+            Tocá una zona para ver si hay cobertura.
+          </p>
+          <p class="coverage-config-note">
+            Para marcar barrios o partidos <strong>sin</strong> servicio en rojo, editá las listas en
+            <code>js/coverage-config.js</code> y volvé a publicar el sitio.
           </p>
         </header>
-        <figure class="coverage-figure">
-          <div class="coverage-map-frame">
-            <img
-              src="images/buenos-aires-provincia.svg"
-              width="1049"
-              height="1279"
-              alt="Mapa de la provincia de Buenos Aires con sus secciones"
-              class="coverage-province-img"
-              loading="lazy"
-              decoding="async"
-            />
-          </div>
-          <figcaption class="coverage-attrib">
-            Mapa de la provincia (secciones electorales).
-            <a href="https://commons.wikimedia.org/wiki/File:Secciones_electorales_de_la_provincia_de_Buenos_Aires.svg" target="_blank" rel="noopener noreferrer">Wikimedia Commons</a>
-            · CC BY-SA 4.0
-          </figcaption>
-        </figure>
+        <div class="coverage-map-legend" aria-hidden="true">
+          <span class="coverage-legend-item"><i class="coverage-swatch coverage-swatch--ok"></i> Con cobertura</span>
+          <span class="coverage-legend-item"><i class="coverage-swatch coverage-swatch--no"></i> Sin cobertura</span>
+        </div>
+        <div
+          id="mapa-cobertura"
+          class="coverage-leaflet-map"
+          role="region"
+          aria-label="Mapa interactivo de cobertura en CABA y AMBA"
+        ></div>
+        <p class="coverage-map-hint">Podés hacer zoom con los botones + y −. El desplazamiento con rueda del mouse está desactivado para no interferir al bajar la página.</p>
+        <p class="coverage-attrib">
+          Límites de barrios: datos abiertos
+          <a href="https://data.buenosaires.gob.ar/dataset/barrios" target="_blank" rel="noopener noreferrer">GCBA</a> (CC BY 2.5 AR).
+          Límites de partidos (AMBA):
+          <a href="https://catalogo.datos.gba.gob.ar/dataset/partidos" target="_blank" rel="noopener noreferrer">Provincia de Buenos Aires</a> (CC BY 4.0).
+        </p>
       </div>
     </section>
 
@@ -239,6 +243,9 @@
     </div>
   </footer>
 
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="js/coverage-config.js"></script>
+  <script src="js/coverage-map.js"></script>
   <script src="js/main.js"></script>
 </body>
 </html>

@@ -13,3 +13,7 @@ Desktop.ini
 # Logs y temporales
 *.log
 *.tmp
+
+# GeoJSON pesado sin filtrar (solo usamos amba-partidos.geojson en el repo)
+data/partidos-zip/
+data/limites-partidos.zip
