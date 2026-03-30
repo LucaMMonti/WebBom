@@ -20,5 +20,7 @@ window.HOMEFIX_COVERAGE = {
     "Exaltación de la Cruz",
     "Cañuelas",
     "Brandsen",
+    "San Vicente",
+    "Berisso",
   ],
 };
