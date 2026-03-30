@@ -1,6 +1,31 @@
 (function () {
   var cfg = window.HOMEFIX_COVERAGE || { cabaSinCobertura: [], ambaSinCobertura: [] };
 
+  /** Base path absoluta (/ o /WebBom/) para que fetch no rompa en GitHub Pages sin barra final */
+  function getBasePath() {
+    var path = window.location.pathname || "/";
+    if (path.endsWith(".html")) {
+      path = path.slice(0, path.lastIndexOf("/") + 1);
+    } else if (path !== "" && path !== "/" && !path.endsWith("/")) {
+      path += "/";
+    }
+    if (path === "") path = "/";
+    return path;
+  }
+
+  function geoUrl(relPath) {
+    return window.location.origin + getBasePath() + relPath.replace(/^\//, "");
+  }
+
+  function loadGeoJson(url) {
+    return fetch(url).then(function (r) {
+      if (!r.ok) {
+        throw new Error("HTTP " + r.status + " " + url);
+      }
+      return r.json();
+    });
+  }
+
   function norm(s) {
     return String(s)
       .toLowerCase()
@@ -41,14 +66,7 @@
       maxZoom: 20,
     }).addTo(map);
 
-    Promise.all([
-      fetch("data/amba-partidos.geojson").then(function (r) {
-        return r.json();
-      }),
-      fetch("data/caba-barrios.geojson").then(function (r) {
-        return r.json();
-      }),
-    ])
+    Promise.all([loadGeoJson(geoUrl("data/amba-partidos.geojson")), loadGeoJson(geoUrl("data/caba-barrios.geojson"))])
       .then(function (results) {
         var amba = results[0];
         var caba = results[1];
@@ -61,9 +79,7 @@
           onEachFeature: function (feat, layer) {
             var n = feat.properties.nam;
             var ok = !ambaRojos.has(norm(n));
-            layer.bindPopup(
-              "<strong>" + L.Util.escapeHTML(n) + "</strong><br/>Partido (AMBA)<br/>" + (ok ? "Con cobertura" : "Sin cobertura")
-            );
+            layer.bindPopup("<strong>" + esc(n) + "</strong><br/>Partido (AMBA)<br/>" + (ok ? "Con cobertura" : "Sin cobertura"));
           },
         }).addTo(map);
 
@@ -83,8 +99,10 @@
         b.extend(gCaba.getBounds());
         map.fitBounds(b, { padding: [28, 28], maxZoom: 11 });
       })
-      .catch(function () {
-        el.innerHTML = '<p class="map-error">No se pudo cargar el mapa. Comprobá tu conexión o probá más tarde.</p>';
+      .catch(function (err) {
+        console.error("Mapa cobertura:", err);
+        el.innerHTML =
+          '<p class="map-error">No se pudo cargar el mapa. Si usás GitHub Pages, probá abrir el sitio con barra al final en la URL (ej. …/WebBom/). Si sigue fallando, abrí la consola del navegador (F12) para ver el detalle.</p>';
       });
   }
 
