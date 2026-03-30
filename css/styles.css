@@ -640,12 +640,17 @@ a:hover {
   color: var(--accent);
 }
 
-.contact-pending {
-  color: var(--text-muted);
-  font-size: 0.98rem;
+.form-honey {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  opacity: 0;
 }
 
 .contact-form {
+  position: relative;
   display: flex;
   flex-direction: column;
   gap: 1.1rem;

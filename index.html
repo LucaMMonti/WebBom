@@ -186,11 +186,19 @@
           </header>
           <address class="contact-details">
             <p><strong>Teléfono</strong><br /><a href="tel:+5491166866571">+54 9 11 6686-6571</a></p>
-            <p><strong>Correo</strong><br /><span class="contact-pending">Próximamente — escribinos por WhatsApp o llamanos.</span></p>
+            <p><strong>Correo</strong><br /><a href="mailto:axelalejo27@gmail.com">axelalejo27@gmail.com</a></p>
             <p><strong>Horario</strong><br />Lun–Vie 9:00–19:00 · Sáb 9:00–14:00</p>
           </address>
         </div>
-        <form class="contact-form" action="#" method="post" novalidate>
+        <form
+          class="contact-form"
+          action="https://formsubmit.co/axelalejo27@gmail.com"
+          method="POST"
+        >
+          <input type="hidden" name="_subject" value="Consulta web — HomeFix Reparaciones" />
+          <input type="hidden" name="_next" value="https://webbom.pages.dev/#contacto" />
+          <input type="hidden" name="_captcha" value="false" />
+          <input type="text" name="_honey" class="form-honey" tabindex="-1" autocomplete="off" aria-hidden="true" />
           <label>
             Nombre
             <input type="text" name="nombre" autocomplete="name" required />
@@ -204,7 +212,9 @@
             <textarea name="mensaje" rows="4" required placeholder="Equipo (lavarropas, lavavajillas, secarropas), marca, modelo y qué falla…"></textarea>
           </label>
           <button type="submit" class="btn btn-primary btn-block">Enviar solicitud</button>
-          <p class="form-note">Formulario de demostración: cuando tengas correo u hosting, podés enlazar el envío. Mientras tanto, contactanos por teléfono o WhatsApp.</p>
+          <p class="form-note">
+            La consulta llega a <strong>axelalejo27@gmail.com</strong>. La primera vez, FormSubmit puede pedirte confirmar el correo con un enlace que te envían (solo una vez).
+          </p>
         </form>
       </div>
     </section>
