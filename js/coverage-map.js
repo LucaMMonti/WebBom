@@ -46,6 +46,17 @@
     };
   }
 
+  /** CABA: borde más marcado para ver el límite de cada barrio */
+  function styleForBarrio(green) {
+    return {
+      fillColor: green ? "#22c55e" : "#ef4444",
+      color: green ? "#0f3d26" : "#7f1d1d",
+      weight: 2.75,
+      opacity: 1,
+      fillOpacity: 0.42,
+    };
+  }
+
   function esc(s) {
     return String(s)
       .replace(/&/g, "&amp;")
@@ -86,7 +97,7 @@
         var gCaba = L.geoJSON(caba, {
           style: function (feat) {
             var green = !cabaRojos.has(norm(feat.properties.nombre));
-            return styleFor(green);
+            return styleForBarrio(green);
           },
           onEachFeature: function (feat, layer) {
             var n = feat.properties.nombre;

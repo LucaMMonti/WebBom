@@ -15,6 +15,10 @@ window.HOMEFIX_COVERAGE = {
 
   /** Partidos del AMBA mostrados en el mapa sin cobertura → rojo */
   ambaSinCobertura: [
-    /* ejemplos: "Zárate", "Campana" */
+    "Zárate",
+    "Campana",
+    "Exaltación de la Cruz",
+    "Cañuelas",
+    "Brandsen",
   ],
 };
