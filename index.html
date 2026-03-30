@@ -11,7 +11,7 @@
   <link rel="stylesheet" href="css/styles.css" />
 </head>
 <body>
-  <header class="site-header" id="inicio">
+  <header class="site-header">
     <div class="container header-inner">
       <a href="#inicio" class="logo" aria-label="HomeFix Reparaciones — Inicio">
         <svg class="logo-img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" fill="none" role="img" aria-hidden="true" focusable="false" width="44" height="44">
@@ -38,8 +38,10 @@
       </button>
       <nav class="site-nav" id="site-nav" aria-label="Principal">
         <ul>
+          <li><a href="#inicio">Inicio</a></li>
           <li><a href="#servicios">Servicios</a></li>
           <li><a href="#ventajas">Ventajas</a></li>
+          <li><a href="#cobertura">Zona de cobertura</a></li>
           <li><a href="#contacto">Contacto</a></li>
         </ul>
         <a class="btn btn-primary nav-cta" href="tel:+5491166866571">Llamar ahora</a>
@@ -48,18 +50,30 @@
   </header>
 
   <main>
-    <section class="hero">
+    <section class="hero" id="inicio">
       <div class="hero-bg" aria-hidden="true"></div>
-      <div class="container hero-content">
-        <p class="hero-eyebrow">Instalación · Mantenimiento · Reparación</p>
-        <h1>Confort en tu hogar, con manos de confianza</h1>
-        <p class="hero-lead">
-          Instalamos y damos servicio a equipos de aire acondicionado y reparamos electrodomésticos con garantía de trabajo bien hecho.
-        </p>
-        <div class="hero-actions">
-          <a class="btn btn-primary" href="#contacto">Solicitar presupuesto</a>
-          <a class="btn btn-ghost" href="https://wa.me/5491166866571" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+      <div class="container hero-inner">
+        <div class="hero-content">
+          <p class="hero-eyebrow">Instalación · Mantenimiento · Reparación</p>
+          <h1>Confort en tu hogar, con manos de confianza</h1>
+          <p class="hero-lead">
+            Instalamos y damos servicio a equipos de aire acondicionado y reparamos electrodomésticos con garantía de trabajo bien hecho.
+          </p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#contacto">Solicitar presupuesto</a>
+            <a class="btn btn-ghost" href="https://wa.me/5491166866571" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+          </div>
         </div>
+        <figure class="hero-figure">
+          <img
+            src="images/hero-electrodomesticos.png"
+            width="1200"
+            height="675"
+            alt="Heladera, lavarropas, cocina y aire acondicionado: electrodomésticos que reparamos e instalamos"
+            loading="eager"
+            decoding="async"
+          />
+        </figure>
       </div>
     </section>
 
@@ -112,12 +126,55 @@
             </li>
           </ul>
         </div>
-        <div class="features-panel" aria-hidden="true">
+        <div class="features-panel">
           <div class="panel-inner">
             <p class="panel-stat"><span>+10</span> años de experiencia</p>
-            <p class="panel-note">Equipos de las principales marcas · CABA y zona metropolitana</p>
+            <p class="panel-brands-intro">Equipos de las principales marcas:</p>
+            <ul class="brand-logos-list">
+              <li>
+                <img src="https://cdn.jsdelivr.net/npm/simple-icons@11.6.0/icons/samsung.svg" width="32" height="32" alt="Samsung" loading="lazy" decoding="async" />
+              </li>
+              <li>
+                <img src="https://cdn.jsdelivr.net/npm/simple-icons@11.6.0/icons/lg.svg" width="32" height="32" alt="LG" loading="lazy" decoding="async" />
+              </li>
+              <li>
+                <img src="https://cdn.jsdelivr.net/npm/simple-icons@11.6.0/icons/bosch.svg" width="32" height="32" alt="Bosch" loading="lazy" decoding="async" />
+              </li>
+              <li>
+                <img src="https://cdn.jsdelivr.net/npm/simple-icons@11.6.0/icons/siemens.svg" width="32" height="32" alt="Siemens" loading="lazy" decoding="async" />
+              </li>
+              <li>
+                <img src="https://cdn.jsdelivr.net/npm/simple-icons@11.6.0/icons/panasonic.svg" width="32" height="32" alt="Panasonic" loading="lazy" decoding="async" />
+              </li>
+              <li>
+                <img src="https://cdn.jsdelivr.net/npm/simple-icons@11.6.0/icons/sharp.svg" width="32" height="32" alt="Sharp" loading="lazy" decoding="async" />
+              </li>
+            </ul>
           </div>
         </div>
+      </div>
+    </section>
+
+    <section class="section coverage" id="cobertura">
+      <div class="container">
+        <header class="section-head">
+          <h2>Zona de cobertura</h2>
+          <p class="coverage-lead">
+            Trabajamos en <strong>CABA</strong> y <strong>zona metropolitana</strong>, y damos servicio en distintos puntos de la
+            <strong>provincia de Buenos Aires</strong>. Consultanos por tu localidad.
+          </p>
+        </header>
+        <div class="coverage-map-wrap">
+          <iframe
+            title="Mapa de la provincia de Buenos Aires"
+            src="https://www.openstreetmap.org/export/embed.html?bbox=-63.85%2C-40.35%2C-56.65%2C-33.15&amp;layer=mapnik"
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+          ></iframe>
+        </div>
+        <p class="coverage-map-foot">
+          <a href="https://www.openstreetmap.org/?#map=7/-36.5/-60.2" target="_blank" rel="noopener noreferrer">Abrir mapa en pantalla completa</a>
+        </p>
       </div>
     </section>
 
