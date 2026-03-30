@@ -37,17 +37,8 @@
   var cabaRojos = new Set((cfg.cabaSinCobertura || []).map(norm));
   var ambaRojos = new Set((cfg.ambaSinCobertura || []).map(norm));
 
-  function styleFor(green) {
-    return {
-      fillColor: green ? "#22c55e" : "#ef4444",
-      color: green ? "#166534" : "#991b1b",
-      weight: 1.5,
-      fillOpacity: 0.48,
-    };
-  }
-
-  /** CABA: borde más marcado para ver el límite de cada barrio */
-  function styleForBarrio(green) {
+  /** Barrios CABA y partidos AMBA: borde grueso para ver bien los límites */
+  function styleForZona(green) {
     return {
       fillColor: green ? "#22c55e" : "#ef4444",
       color: green ? "#0f3d26" : "#7f1d1d",
@@ -85,7 +76,7 @@
         var gAmba = L.geoJSON(amba, {
           style: function (feat) {
             var green = !ambaRojos.has(norm(feat.properties.nam));
-            return styleFor(green);
+            return styleForZona(green);
           },
           onEachFeature: function (feat, layer) {
             var n = feat.properties.nam;
@@ -97,7 +88,7 @@
         var gCaba = L.geoJSON(caba, {
           style: function (feat) {
             var green = !cabaRojos.has(norm(feat.properties.nombre));
-            return styleForBarrio(green);
+            return styleForZona(green);
           },
           onEachFeature: function (feat, layer) {
             var n = feat.properties.nombre;
