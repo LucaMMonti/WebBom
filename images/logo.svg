@@ -7,9 +7,5 @@
     </linearGradient>
   </defs>
   <rect width="120" height="120" rx="28" fill="url(#azGrad)"/>
-  <g stroke="#fff" stroke-opacity="0.4" stroke-width="2.2" stroke-linecap="round">
-    <path d="M86 26v14M79 33h14"/>
-    <path d="M86 26l-4.5 7.5M86 26l4.5 7.5"/>
-  </g>
   <text x="60" y="81" text-anchor="middle" fill="#fff" font-family="system-ui,-apple-system,Segoe UI,sans-serif" font-size="46" font-weight="800" letter-spacing="-3">HF</text>
 </svg>

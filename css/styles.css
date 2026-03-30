@@ -271,53 +271,52 @@ a:hover {
 /* Hero */
 .hero {
   position: relative;
-  min-height: min(720px, calc(100dvh - var(--header-h)));
+  min-height: min(520px, calc(100dvh - var(--header-h)));
   display: flex;
   align-items: center;
-  padding-block: 3rem 4rem;
+  padding-block: 4rem 4.5rem;
   overflow: hidden;
   scroll-margin-top: var(--header-h);
 }
 
-.hero-bg {
+.hero-media {
   position: absolute;
   inset: 0;
-  background:
-    radial-gradient(ellipse 80% 60% at 70% 20%, rgba(56, 189, 248, 0.18), transparent 55%),
-    radial-gradient(ellipse 60% 50% at 10% 80%, rgba(99, 102, 241, 0.12), transparent 50%),
-    linear-gradient(180deg, var(--bg-deep) 0%, #0f172a 100%);
+  background: url("../images/hero-electrodomesticos.png") center 40% / cover no-repeat;
   pointer-events: none;
 }
 
-.hero-inner {
-  position: relative;
-  z-index: 1;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: clamp(1.5rem, 4vw, 3rem);
-  align-items: center;
-  width: 100%;
+.hero-scrim {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    105deg,
+    rgba(12, 18, 34, 0.94) 0%,
+    rgba(12, 18, 34, 0.88) 32%,
+    rgba(12, 18, 34, 0.55) 58%,
+    rgba(12, 18, 34, 0.35) 100%
+  );
+  pointer-events: none;
 }
 
 .hero-content {
-  max-width: 36rem;
+  position: relative;
+  z-index: 1;
+  max-width: 38rem;
   min-width: 0;
 }
 
-.hero-figure {
-  margin: 0;
-  border-radius: var(--radius);
-  overflow: hidden;
-  border: 1px solid var(--border);
-  box-shadow: var(--shadow);
+.hero .hero-btn-outline {
+  border-color: rgba(255, 255, 255, 0.45);
+  background: rgba(12, 18, 34, 0.35);
+  color: var(--text);
+  backdrop-filter: blur(6px);
 }
 
-.hero-figure img {
-  width: 100%;
-  height: auto;
-  display: block;
-  object-fit: cover;
-  aspect-ratio: 1200 / 675;
+.hero .hero-btn-outline:hover {
+  background: rgba(26, 35, 56, 0.65);
+  color: var(--text);
+  border-color: rgba(255, 255, 255, 0.6);
 }
 
 .hero-eyebrow {
@@ -514,7 +513,7 @@ a:hover {
 }
 
 .brand-logos-list img {
-  height: 26px;
+  height: 44px;
   width: auto;
   display: block;
   filter: brightness(0) invert(1);
@@ -557,27 +556,39 @@ a:hover {
   font-weight: 600;
 }
 
-.coverage-map-wrap {
-  margin-top: 2.25rem;
+.coverage-figure {
+  margin: 2.25rem 0 0;
+  padding: 0;
+}
+
+.coverage-map-frame {
   border-radius: var(--radius);
   overflow: hidden;
   border: 1px solid var(--border);
   box-shadow: var(--shadow);
-  background: var(--bg-card);
+  background: #e8eef5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.25rem 1rem;
 }
 
-.coverage-map-wrap iframe {
-  display: block;
+.coverage-province-img {
   width: 100%;
-  height: min(480px, 55vh);
-  min-height: 360px;
-  border: 0;
+  max-width: min(720px, 100%);
+  height: auto;
+  max-height: min(560px, 70vh);
+  object-fit: contain;
+  display: block;
+  margin-inline: auto;
 }
 
-.coverage-map-foot {
-  margin: 1rem 0 0;
+.coverage-attrib {
+  margin: 0.85rem 0 0;
   text-align: center;
-  font-size: 0.9rem;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  line-height: 1.5;
 }
 
 .cta-band {
@@ -737,20 +748,17 @@ a:hover {
     grid-template-columns: 1fr;
   }
 
-  .hero-inner {
-    grid-template-columns: 1fr;
-  }
-
-  .hero-figure {
-    order: -1;
-    max-width: 520px;
-    margin-inline: auto;
-    width: 100%;
-  }
-
   .hero {
-    min-height: 0;
-    padding-block: 2rem 3rem;
+    min-height: min(440px, calc(100dvh - var(--header-h)));
+    padding-block: 2.75rem 3rem;
+  }
+
+  .hero-media {
+    background-position: center center;
+  }
+
+  .brand-logos-list img {
+    height: 38px;
   }
 }
 
